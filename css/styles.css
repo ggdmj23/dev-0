@@ -1,0 +1,134 @@
+/* === Global Styles === */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  font-family: 'Roboto', sans-serif;
+  background: url('../images/linux-mint-powered.jpg') no-repeat center center fixed;
+  background-size: cover;
+  color: #f0f0f0;
+  line-height: 1.6;
+}
+
+/* === Layout Containers === */
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* === Header === */
+header {
+  background-color: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.5rem;
+  color: #e60000;
+}
+
+/* === Main Content === */
+main {
+  flex-grow: 1;
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.6);
+  margin: 2rem;
+  border-radius: 0.5rem;
+}
+
+/* === Footer === */
+footer {
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 1rem;
+  text-align: center;
+  font-size: 0.85rem;
+  color: #ccc;
+}
+
+/* === Cool Theme Toggle Button === */
+#theme-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  background: #222;
+  color: #ff0;
+  border: 2px solid #ff0;
+  border-radius: 50%;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 1000;
+}
+
+#theme-toggle:hover {
+  background: #ff0;
+  color: #222;
+  transform: rotate(360deg);
+}
+
+/* === Typing Animation === */
+.typing {
+  font-family: 'Courier New', monospace;
+  font-size: 1rem;
+  color: #0f0;
+  white-space: pre;
+  border-right: 2px solid #0f0;
+  width: fit-content;
+  overflow: hidden;
+  animation: blink 0.75s step-end infinite;
+  margin-top: 2rem;
+}
+
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+
+/* === Neon Clock === */
+#neon-clock {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  font-family: 'Courier New', monospace;
+  font-size: 1.2rem;
+  color: #00ffff;
+  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+  border-radius: 10px;
+  z-index: 999;
+}
+
+/* === Light Theme Support === */
+body.light-theme {
+  background-color: #fafafa;
+  color: #111;
+}
+
+body.light-theme header,
+body.light-theme main,
+body.light-theme footer {
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #000;
+}
+
+body.light-theme #theme-toggle {
+  background: #eee;
+  color: #111;
+  border-color: #111;
+}
+
+body.light-theme #theme-toggle:hover {
+  background: #111;
+  color: #fff;
+}
