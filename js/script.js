@@ -15,7 +15,7 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Create and display greeting in main
-  const main = document.querySelector("main");
+  const main = document.querySelector("header");
   const greetingEl = document.createElement("p");
   greetingEl.textContent = greeting;
   greetingEl.style.fontStyle = "italic";
@@ -26,24 +26,30 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // === Dynamic Footer Year ===
   const year = new Date().getFullYear();
-  document.querySelector("footer").innerHTML = `&copy; ${year} Airgon. All rights reserved.`;
+  document.querySelector(
+    "footer"
+  ).innerHTML = `&copy; ${year} Airgon. All rights reserved.`;
 
   // === Theme Switcher ===
   const toggle = document.createElement("div");
   toggle.id = "theme-toggle";
-  toggle.title = "Toggle Dark/Light Theme";
+  toggle.title = "Toggle Light/Dark Theme";
   toggle.innerHTML = "🌓";
   document.body.appendChild(toggle);
 
+  // Default to "dark-theme" (the current light-like look)
+  document.body.classList.add("dark-theme");
+
   toggle.addEventListener("click", () => {
+    document.body.classList.toggle("dark-theme");
     document.body.classList.toggle("light-theme");
   });
 
   // === Terminal Typing Animation ===
-  const message = "Welcome to LAMPConnect — Your local-first PHP contact app.";
+  const message = "Welcome Dev-0 — My first online app.";
   const target = document.createElement("p");
   target.className = "typing";
-  document.querySelector("main").appendChild(target);
+  document.querySelector("header").appendChild(target);
 
   let i = 0;
   function typeWriter() {
@@ -66,4 +72,8 @@ document.addEventListener("DOMContentLoaded", () => {
   }
   setInterval(updateClock, 1000);
   updateClock();
+
+  document.getElementById("explore-btn")?.addEventListener("click", () => {
+    document.getElementById("about")?.scrollIntoView({ behavior: "smooth" });
+  });
 });

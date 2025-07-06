@@ -60,16 +60,50 @@
       rel="stylesheet"
     />
 
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet" />
+
+
     <!-- Canonical URL -->
     <link rel="canonical" href="https://example.com" />
   </head>
   <body>
     <header>
-      <h1>Welcome to My Website</h1>
+      <h1 class="glitch" data-text="Dev 0">Dev 0</h1>
     </header>
 
     <main>
-      <p>This is a basic HTML5 template with complete metadata.</p>
+      <section id="intro">
+        <p>This is a basic HTML5 template with complete metadata.</p>
+        <button id="explore-btn">Explore More</button>
+      </section>
+
+      <section id="about">
+        <h2>About This Project</h2>
+        <p>
+          This static site was built using HTML, CSS, and JavaScript — then
+          deployed using GitHub Pages. It's fast, simple, and mobile-friendly.
+        </p>
+      </section>
+
+      <section id="features">
+        <h2>Features</h2>
+        <ul>
+          <li>Theme toggle</li>
+          <li>Typing animation</li>
+          <li>Neon digital clock</li>
+          <li>Fully responsive</li>
+        </ul>
+      </section>
+
+      <section id="contact">
+        <h2>Contact</h2>
+        <form id="contact-form">
+          <input type="text" placeholder="Your name" disabled />
+          <input type="email" placeholder="Your email" disabled />
+          <textarea placeholder="Your message..." disabled></textarea>
+          <button type="submit" disabled>Send (Coming Soon)</button>
+        </form>
+      </section>
     </main>
 
     <footer>

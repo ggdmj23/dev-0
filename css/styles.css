@@ -1,4 +1,17 @@
-/* === Global Styles === */
+/* === Custom Fonts === */
+@font-face {
+  font-family: "VCR";
+  src: url("../fonts/vcr.ttf") format("truetype");
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "MrRobot";
+  src: url("../fonts/mrrobot.ttf") format("truetype");
+  font-display: swap;
+}
+
+/* === Global Reset === */
 * {
   margin: 0;
   padding: 0;
@@ -7,14 +20,13 @@
 
 html, body {
   height: 100%;
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Share Tech Mono', 'Roboto', sans-serif;
   background: url('../images/linux-mint-powered.jpg') no-repeat center center fixed;
   background-size: cover;
   color: #f0f0f0;
   line-height: 1.6;
 }
 
-/* === Layout Containers === */
 body {
   display: flex;
   flex-direction: column;
@@ -29,8 +41,33 @@ header {
 }
 
 header h1 {
-  font-size: 2.5rem;
+  font-family: 'MrRobot', 'Share Tech Mono', monospace;
+  font-size: 2.8rem;
+  letter-spacing: 2px;
   color: #e60000;
+  text-shadow:
+    0 0 1px #000,
+    0 0 2px #e60000,
+    0 0 4px #ff1a1a,
+    0 0 6px #660000;
+  animation: red-glow 1.4s infinite alternate;
+}
+
+@keyframes red-glow {
+  from {
+    text-shadow:
+      0 0 1px #000,
+      0 0 2px #e60000,
+      0 0 4px #ff1a1a,
+      0 0 6px #660000;
+  }
+  to {
+    text-shadow:
+      0 0 1px #000,
+      0 0 3px #ff1a1a,
+      0 0 5px #e60000,
+      0 0 7px #ff1a1a;
+  }
 }
 
 /* === Main Content === */
@@ -48,18 +85,77 @@ footer {
   padding: 1rem;
   text-align: center;
   font-size: 0.85rem;
-  color: #ccc;
+  color: #00ff66;
+  text-shadow: 0 0 5px #00ff66;
 }
 
-/* === Cool Theme Toggle Button === */
+/* === Section Styling === */
+main section {
+  margin-bottom: 3rem;
+  padding: 1.5rem;
+  background-color: rgba(20, 20, 20, 0.6);
+  border-radius: 0.5rem;
+  box-shadow:
+    0 0 10px rgba(0, 255, 102, 0.1),
+    0 0 20px rgba(0, 255, 102, 0.05),
+    inset 0 0 10px rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeIn 1s ease forwards;
+}
+
+main section:nth-of-type(2) { animation-delay: 0.3s; }
+main section:nth-of-type(3) { animation-delay: 0.6s; }
+
+main h2 {
+  margin-bottom: 1rem;
+  color: #e60000;
+  font-family: 'MrRobot', 'Share Tech Mono', monospace;
+  text-shadow:
+    0 0 3px #ff1a1a,
+    0 0 6px #ff0000,
+    0 0 10px #ff0000;
+  animation: red-glow 1.5s infinite alternate;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Button Styling === */
+button {
+  background-color: #00ff66;
+  color: #000;
+  border: 2px solid #33ff99;
+  padding: 0.75rem 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  font-family: 'Share Tech Mono', monospace;
+  box-shadow: 0 0 5px #00ff66, 0 0 10px #33ff99;
+}
+
+button:hover {
+  background-color: #33ff99;
+  transform: scale(1.05);
+  box-shadow: 0 0 8px #33ff99, 0 0 16px #00ff66;
+}
+
+/* === Theme Toggle === */
 #theme-toggle {
   position: fixed;
   top: 1rem;
   left: 1rem;
   font-size: 1.5rem;
-  background: #222;
-  color: #ff0;
-  border: 2px solid #ff0;
+  background: #111;
+  color: #00ff66;
+  border: 2px solid #00ff66;
   border-radius: 50%;
   width: 2.5rem;
   height: 2.5rem;
@@ -72,26 +168,26 @@ footer {
 }
 
 #theme-toggle:hover {
-  background: #ff0;
-  color: #222;
+  background: #00ff66;
+  color: #000;
   transform: rotate(360deg);
 }
 
 /* === Typing Animation === */
 .typing {
-  font-family: 'Courier New', monospace;
+  font-family: 'Share Tech Mono', monospace;
   font-size: 1rem;
-  color: #0f0;
+  color: #00ff66;
+  background-color: rgba(0, 0, 0, 0.6);
+  padding: 0.5rem 1rem;
+  border-left: 4px solid #00ff66;
   white-space: pre;
-  border-right: 2px solid #0f0;
-  width: fit-content;
-  overflow: hidden;
   animation: blink 0.75s step-end infinite;
   margin-top: 2rem;
 }
 
 @keyframes blink {
-  50% { border-color: transparent; }
+  50% { border-left-color: transparent; }
 }
 
 /* === Neon Clock === */
@@ -101,34 +197,136 @@ footer {
   right: 1rem;
   font-family: 'Courier New', monospace;
   font-size: 1.2rem;
-  color: #00ffff;
-  text-shadow: 0 0 5px #00ffff, 0 0 10px #00ffff;
+  color: #00ff66;
+  text-shadow: 0 0 5px #00ff66, 0 0 10px #00ff66;
   background-color: rgba(0, 0, 0, 0.6);
   padding: 0.5rem 1rem;
   border-radius: 10px;
   z-index: 999;
+  border: 2px solid #00ff66;
+  box-shadow: 0 0 5px #00ff66, 0 0 15px #00ff66;
 }
 
-/* === Light Theme Support === */
+/* === Contact Form === */
+#contact-form input,
+#contact-form textarea {
+  display: block;
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: #111;
+  color: #ccc;
+  border: 1px solid #444;
+  border-radius: 5px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+#contact-form button[disabled] {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* === Glitch Effect === */
+.glitch {
+  position: relative;
+  color: #e60000;
+  font-family: 'MrRobot', 'Share Tech Mono', monospace;
+  animation: glitch-skew 1s infinite linear alternate-reverse;
+}
+
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+}
+
+.glitch::before {
+  top: -1px;
+  color: #ff1a1a;
+  z-index: -1;
+  animation: glitch-top 2s infinite linear;
+}
+
+.glitch::after {
+  top: 1px;
+  color: #660000;
+  z-index: -2;
+  animation: glitch-bottom 1.5s infinite linear;
+}
+
+@keyframes glitch-skew {
+  0% { transform: skew(0deg); }
+  50% { transform: skew(-1deg); }
+  100% { transform: skew(1deg); }
+}
+
+@keyframes glitch-top {
+  0% { clip-path: inset(0 0 90% 0); }
+  50% { clip-path: inset(50% 0 10% 0); }
+  100% { clip-path: inset(80% 0 5% 0); }
+}
+
+@keyframes glitch-bottom {
+  0% { clip-path: inset(80% 0 0 0); }
+  50% { clip-path: inset(10% 0 85% 0); }
+  100% { clip-path: inset(30% 0 60% 0); }
+}
+
+/* === Light Theme (clean white) === */
 body.light-theme {
-  background-color: #fafafa;
+  background-color: #f2f2f2;
   color: #111;
+  background-image: none;
 }
 
 body.light-theme header,
 body.light-theme main,
 body.light-theme footer {
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #000;
+  background-color: #ffffff;
+  color: #111;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+}
+
+body.light-theme h1,
+body.light-theme h2 {
+  color: #222;
+  text-shadow: none;
+}
+
+body.light-theme #neon-clock {
+  background-color: #f0f0f0;
+  color: #222;
+  border: 1px solid #ccc;
+  text-shadow: none;
+}
+
+body.light-theme .typing {
+  background-color: #f9f9f9;
+  color: #333;
+  border-left: 4px solid #444;
+}
+
+body.light-theme button {
+  background-color: #444;
+  color: #fff;
+  border: none;
+}
+
+body.light-theme button:hover {
+  background-color: #000;
 }
 
 body.light-theme #theme-toggle {
-  background: #eee;
-  color: #111;
-  border-color: #111;
+  background-color: #fff;
+  color: #000;
+  border: 2px solid #000;
 }
 
 body.light-theme #theme-toggle:hover {
-  background: #111;
+  background-color: #000;
   color: #fff;
 }
